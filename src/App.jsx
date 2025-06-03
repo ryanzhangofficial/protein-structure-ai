@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Image from './components/Image.jsx';
 import Upload from './components/Upload.jsx';
+import UserSample from './components/UserSample.jsx';
 
 function App() {
   const [uploadedData, setUploadedData] = useState(null);
@@ -14,8 +15,9 @@ function App() {
   return (
     <>
       <h1>Protein Structure AI</h1>
-      <Image uploadedData={uploadedData}/>
-      <Upload onUpload={handleUpload} />
+      <UserSample />
+      {/* <Image uploadedData={uploadedData}/>
+      <Upload onUpload={handleUpload} /> */}
     </>
   );
 }
