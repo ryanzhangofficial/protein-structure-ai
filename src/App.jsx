@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import Image from './components/Image.jsx';
-import Upload from './components/Upload.jsx';
+// import Image from './components/Image.jsx';
+// import Upload from './components/Upload.jsx';
 import UserSample from './components/UserSample.jsx';
 
 function App() {
