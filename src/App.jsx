@@ -13,7 +13,8 @@ export default function App() {
   const slides = [
     {
       title: 'Motivation',
-      image: 'https://www.genengnews.com/wp-content/uploads/2018/10/July13_2010_18168316_DNAMadeofMoneyAgainstBlueSky_SyntheticBioAI3284194197.jpg',
+      image:
+        'https://www.genengnews.com/wp-content/uploads/2018/10/July13_2010_18168316_DNAMadeofMoneyAgainstBlueSky_SyntheticBioAI3284194197.jpg',
       source: 'genengnews.com',
       content:
         'Lab methods like X-ray crystallography and NMR take too long and are expensive. Protein Structure AI has the potential to make fast, in-browser secondary structure predictions to make insights available and speed up research workflows.',
@@ -27,7 +28,8 @@ export default function App() {
     },
     {
       title: 'Problem',
-      image: 'https://miro.medium.com/v2/resize:fit:1400/1*p7fQObyc5Eth1jhY1neZ3g.png',
+      image:
+        'https://miro.medium.com/v2/resize:fit:1400/1*p7fQObyc5Eth1jhY1neZ3g.png',
       source: 'miro.medium.com',
       content:
         'Most ML tools need offline training or server-side inference, which makes them hard to use. There isn’t a simple client-side web app that shows per-residue helix, sheet, and coil predictions in the browser for any sequence.',
@@ -57,7 +59,7 @@ export default function App() {
   return (
     <div className="app-container">
       <header className="app-header">
-        <h1>Protein Structure AI</h1>
+        <h1 className="app-title">Protein Structure AI</h1>
       </header>
 
       <main className="app-main">
