@@ -1,56 +1,96 @@
-import React, { useState } from "react";
-import classifySequence from "./Model";
+import React, { useState, useEffect } from 'react'
+import classifySequence from './Model'
+import Loading from './Loading'
 
-export default function UserSample() {
-  const [seq, setSeq] = useState("");
-  const [predictions, setPredictions] = useState([]);
+export default function UserSample({ initialSequence }) {
+  const [seq, setSeq] = useState(initialSequence || '')
+  const [predictions, setPredictions] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
-  async function handleInput() {
-    if (!seq) return;
-    const preds = await classifySequence(seq);
-    // take only as many predictions as the input length
-    setPredictions(preds.slice(0, seq.length));
+  useEffect(() => {
+    if (initialSequence) {
+      setSeq(initialSequence)
+      handlePredict(initialSequence)
+    }
+  }, [initialSequence])
+
+  async function handlePredict(input = seq) {
+    if (!input) return
+    setError(null)
+    setLoading(true)
+    try {
+      const preds = await classifySequence(input)
+      setPredictions(preds.slice(0, input.length))
+    } catch (e) {
+      console.error(e)
+      setError('Failed to use model. Check console for details.')
+      setPredictions([])
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
     <>
-      <input
-        placeholder="Input sequence"
-        value={seq}
-        onChange={(e) => setSeq(e.target.value)}
-        style={{ width: "300px", marginRight: "8px" }}
-      />
-      <button onClick={handleInput}>Predict</button>
+      <div style={{ display: 'flex', marginBottom: 16 }}>
+        <input
+          className="sequence-input"
+          placeholder="Input sequence"
+          value={seq}
+          onChange={e => setSeq(e.target.value)}
+          disabled={loading}
+        />
+        <button
+          className="predict-button"
+          onClick={() => handlePredict()}
+          disabled={loading}
+        >
+          Predict
+        </button>
+      </div>
 
-      {predictions.length > 0 && (
-        <div style={{ marginTop: "12px" }}>
-          <div style={{ display: "flex" }}>
-            {predictions.map((c, idx) => {
-              let color;
-              if (c === 0) color = "salmon";    // Helix
-              else if (c === 1) color = "skyblue"; // Sheet 
-              else color = "lightgray";         // Coil
-              return (
-                <div
-                  key={idx}
-                  title={c === 0 ? "H" : c === 1 ? "E" : "C"}
-                  style={{
-                    width: "10px",
-                    height: "20px",
-                    backgroundColor: color,
-                    marginRight: "1px",
-                  }}
-                />
-              );
-            })}
+      <div className="result-area">
+        {loading && <Loading />}
+
+        {error && (
+          <div className="error">
+            {error}
           </div>
-          <div style={{ marginTop: "6px", fontSize: "12px" }}>
-            <span style={{ display: "inline-block", width: "12px", height: "12px", backgroundColor: "salmon", marginRight: "4px", verticalAlign: "middle" }} /> H  
-            <span style={{ display: "inline-block", width: "12px", height: "12px", backgroundColor: "skyblue", margin: "0 4px", verticalAlign: "middle" }} /> E  
-            <span style={{ display: "inline-block", width: "12px", height: "12px", backgroundColor: "lightgray", margin: "0 4px", verticalAlign: "middle" }} /> C
-          </div>
-        </div>
-      )}
+        )}
+
+        {!loading && !error && predictions.length > 0 && (
+          <>
+            <div className="prediction-bar">
+              {predictions.map((c, i) => {
+                let cls = c === 0
+                  ? 'helix'
+                  : c === 1
+                  ? 'sheet'
+                  : 'coil'
+                return (
+                  <div
+                    key={i}
+                    className={`residue-box ${cls}`}
+                    title={c === 0 ? 'H' : c === 1 ? 'E' : 'C'}
+                  />
+                )
+              })}
+            </div>
+            <div className="legend">
+              <div className="legend-item">
+                <span className="legend-color helix" /> Helix (H)
+              </div>
+              <div className="legend-item">
+                <span className="legend-color sheet" /> Sheet (E)
+              </div>
+              <div className="legend-item">
+                <span className="legend-color coil" /> Coil (C)
+              </div>
+            </div>
+          </>
+        )}
+      </div>
     </>
-  );
+  )
 }
