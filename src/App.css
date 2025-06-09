@@ -2,7 +2,7 @@
   --primary-color: #61dafb;
   --dark-bg: #20232a;
   --light-bg: #f9f9f9;
-  --font-family: 'Segoe UI', Roboto, sans-serif;
+  --font-family: "Segoe UI", Roboto, sans-serif;
   --border-radius: 12px;
   --spacing: 16px;
 }
@@ -79,8 +79,69 @@ body {
 }
 
 .result-area {
-  margin-top: var(--spacing);
-  min-height: 60px;
+  overflow-x: hidden;
+  overflow-y: visible; 
+}
+
+.prediction-bar {
+  display: flex;
+  gap: 1px;
+  margin-top: 8px;
+  transform: scale(1.5);
+  transform-origin: top left;
+}
+
+.residue-box {
+  width: 10px;
+  height: 20px;
+  margin-right: 1px;
+}
+
+.residue-box.helix {
+  background-color: salmon;
+}
+.residue-box.sheet {
+  background-color: skyblue;
+}
+.residue-box.coil {
+  background-color: lightgray;
+}
+
+.legend {
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+  border: 1px solid #ccc;
+}
+
+.legend-color.helix {
+  background-color: salmon;
+}
+.legend-color.sheet {
+  background-color: skyblue;
+}
+.legend-color.coil {
+  background-color: lightgray;
+}
+
+.error {
+  color: #e74c3c;
+  margin-top: 12px;
+  font-weight: 500;
 }
 
 .loading {
