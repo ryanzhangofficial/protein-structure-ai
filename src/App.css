@@ -80,7 +80,9 @@ body {
 
 .result-area {
   overflow-x: hidden;
-  overflow-y: visible; 
+  overflow-y: visible;
+  position: relative;
+  padding-bottom: 24px; 
 }
 
 .prediction-bar {
@@ -89,6 +91,8 @@ body {
   margin-top: 8px;
   transform: scale(1.5);
   transform-origin: top left;
+  flex-wrap: nowrap;           
+  white-space: nowrap;        
 }
 
 .residue-box {
@@ -269,4 +273,70 @@ body {
 .citations li {
   margin-bottom: 8px;
   font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .app-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+    padding: calc(var(--spacing) / 2);
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    margin-bottom: var(--spacing);
+  }
+
+  .sequence-input {
+    width: 100%;
+    margin: 0 0 var(--spacing) 0;
+  }
+
+  .predict-button {
+    width: 100%;
+    margin-bottom: var(--spacing);
+  }
+
+  .sample-button {
+    font-size: 0.9rem;
+  }
+
+  .slides-wrapper {
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+  }
+
+  .slide {
+    padding: var(--spacing) 0;
+  }
+  
+  .slide-content {
+    margin: 0 var(--spacing);
+    text-align: left;
+  }
+
+  .slide-image {
+    max-height: 40vh;
+  }
+
+  .slide-graphs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .slide-image-graph {
+    max-width: 100%;
+  }
+
+  .legend {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .citations {
+    margin: var(--spacing);
+    padding: var(--spacing);
+  }
 }
