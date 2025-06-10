@@ -109,20 +109,28 @@ export default function App() {
         <h2>Citations</h2>
         <ol>
           <li>
-            Jumper et al., Highly accurate protein structure prediction with AlphaFold.
-            <em>Nature</em> (2021).
+            Jumper, J., Evans, R., Pritzel, A., Green, T., Figurnov, M., Ronneberger, O.,
+            Tunyasuvunakool, K., Bates, R., Žídek, A., Potapenko, A., Bridgland, A.,
+            Meyer, C., Kohl, S. A. A., Ballard, A. J., Cowie, A., Romera‑Paredes, B.,
+            Nikolov, S., Jain, R., Adler, J., Back, T., Petersen, S., Reiman, D., Clancy, E.,
+            Zielinski, M., Steinegger, M., Pacholska, M., Berghammer, T., Bodenstein, S.,
+            Silver, D., Vinyals, O., Senior, A. W., Kavukcuoglu, K., Kohli, P., & Hassabis, D. (2021). 
+            Highly accurate protein structure prediction with AlphaFold. <em>Nature, 596</em>(7873), 583–589. https://doi.org/10.1038/s41586-021-03819-2
           </li>
           <li>
-            McGuffin et al., PSIPRED: prediction of protein secondary structure
-            from sequence. <em>Bioinformatics</em> (2000).
+            McGuffin, L. J., Bryson, K., & Jones, D. T. (2000). 
+            The PSIPRED protein structure prediction server. <em>Bioinformatics, 16</em>(4), 404–405. https://doi.org/10.1093/bioinformatics/16.4.404
           </li>
           <li>
-            Kabsch & Sander, Dictionary of protein secondary structure.
-            <em>Biopolymers</em> (1983).
+            Kabsch, W., & Sander, C. (1983). 
+            Dictionary of protein secondary structure: Pattern recognition of hydrogen-bonded and geometrical features. 
+            <em>Biopolymers, 22</em>(12), 2577–2637. https://doi.org/10.1002/bip.360221211
           </li>
           <li>
-            Elnaggar et al., ProtTrans: protein sequence pretraining for structure
-            and function predictions. <em>Nature Communications</em> (2022).
+            Elnaggar, A., Heinzinger, M., Dallago, C., Rehawi, G., Wang, Y., Jones, L., Gibbs, T.,
+            Feher, T., Angerer, C., Steinegger, M., Bhowmik, D., & Rost, B. (2022). 
+            ProtTrans: Toward understanding the language of life through self‑supervised learning. 
+            <em>IEEE Transactions on Pattern Analysis and Machine Intelligence, 44</em>(10), 7112–7127. https://doi.org/10.1109/TPAMI.2021.3095381
           </li>
         </ol>
       </footer>
