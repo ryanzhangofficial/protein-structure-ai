@@ -77,6 +77,7 @@ export default function UserSample({ initialSequence }) {
                 )
               })}
             </div>
+            <br></br>
             <div className="legend">
               <div className="legend-item">
                 <span className="legend-color helix" /> Helix (H)
