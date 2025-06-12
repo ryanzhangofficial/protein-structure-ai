@@ -134,6 +134,16 @@ export default function App() {
           </li>
         </ol>
       </footer>
+      <div className="open-source-footer">
+        Open-source code:&nbsp;
+        <a
+          href="https://github.com/ryanzhangofficial/protein-structure-ai"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          github.com/ryanzhangofficial/protein-structure-ai
+        </a>
+      </div>
     </div>
   )
 }
