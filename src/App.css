@@ -275,6 +275,25 @@ body {
   font-size: 0.9rem;
 }
 
+.open-source-footer {
+  text-align: center;
+  margin: 24px 0;          
+  font-size: 1.1rem;  
+  color: #333;
+  margin-bottom: 2.5rem;
+}
+
+.open-source-footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.open-source-footer a:hover {
+  text-decoration: underline;
+}
+
+
+
 @media (max-width: 600px) {
   .app-main {
     display: flex;
